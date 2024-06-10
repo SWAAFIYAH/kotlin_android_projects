@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.mvvmprojectsample.UI.auth.AuthenticationViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".UI.auth.LoginActivity"
+        android:background="@color/maroon"
+        android:padding="20dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOGIN"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:layout_marginTop="200dp"
+                android:layout_marginBottom="30dp"
+                android:layout_gravity="center_horizontal"></TextView>
+            <EditText
+                android:id="@+id/loginemail"
+                android:text="@={viewmodel.email}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_gravity="center"
+                android:padding="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="20dp"
+                android:hint="email"
+                android:textSize="20dp"
+                app:layout_constraintVertical_bias="0.417" />
+
+            <EditText
+                android:text="@={viewmodel.password}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loginemail"
+                app:layout_constraintVertical_bias="0.417"
+                android:hint="password"
+                android:textSize="20dp"
+                android:layout_marginBottom="40dp"
+
+                />
+            <Button
+                android:onClick="@{() -> viewmodel.onLoginButtonClicked()}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="login"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/white"
+                android:textColor="@color/maroon"
+                android:textStyle="bold"
+                android:textSize="20dp"></Button>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</layout>
