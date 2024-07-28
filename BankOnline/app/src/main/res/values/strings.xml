@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BankOnline</string>
+    <string name="setup">setup</string>
+    <string name="login">login</string>
+    <string name="enter_current_password">enter current password</string>
+    <string name="enter_new_password">enter new password</string>
+    <string name="confirm_new_password">confirm new password</string>
+    <string name="reset_password">reset password</string>
+    <string name="submit">Submit</string>
+</resources>
