@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/homeIcon"
+    android:title="home"
+    android:icon="@drawable/baseline_home_24"/>
+
+    <item android:title=""
+        android:id="@+id/emptyspace"
+        android:enabled="false"
+        android:icon="@android:color/transparent"/>
+    <item android:title="profile"
+        android:id="@+id/profileIcon"
+        android:icon="@drawable/baseline_person_24"/>
+
+</menu>
