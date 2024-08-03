@@ -21,6 +21,11 @@ class LoginPage : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        binding.signupText.setOnClickListener {
+            val intent = Intent(this@LoginPage,SignUpPage::class.java)
+            startActivity(intent)
+            finish()
+        }
 
     }
 }

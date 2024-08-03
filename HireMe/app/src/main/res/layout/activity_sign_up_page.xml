@@ -46,6 +46,7 @@
             android:background="@color/white"
             android:orientation="vertical">
         <EditText
+            android:id="@+id/nameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/grey_text_fields"
@@ -54,6 +55,7 @@
             android:layout_marginBottom="10dp"/>
 
             <EditText
+                android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/grey_text_fields"
@@ -61,6 +63,7 @@
                 android:padding="20dp"
                 android:layout_marginBottom="10dp"/>
             <EditText
+                android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/grey_text_fields"
@@ -68,6 +71,7 @@
                 android:padding="20dp"
                 android:layout_marginBottom="10dp"/>
             <EditText
+                android:id="@+id/confirmPasswordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/grey_text_fields"
@@ -76,6 +80,7 @@
                 android:layout_marginBottom="10dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/signupBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/blue_button"
