@@ -9,5 +9,14 @@
         android:id="@+id/dashBoardFragment"
         android:name="com.example.hireme.ui.DashBoardFragment"
         android:label="fragment_dash_board"
-        tools:layout="@layout/fragment_dash_board" />
+        tools:layout="@layout/fragment_dash_board" >
+        <action
+            android:id="@+id/action_dashBoardFragment_to_avaliableJobsFragment"
+            app:destination="@id/avaliableJobsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/avaliableJobsFragment"
+        android:name="com.example.hireme.ui.AvaliableJobsFragment"
+        android:label="fragment_avaliable_jobs"
+        tools:layout="@layout/fragment_avaliable_jobs" />
 </navigation>

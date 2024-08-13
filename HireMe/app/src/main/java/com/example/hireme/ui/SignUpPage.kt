@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hireme.databinding.ActivitySignUpPageBinding
 import com.example.hireme.models.User
+import com.example.hireme.models.User2
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -23,7 +24,6 @@ class SignUpPage : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
-        dataBase = FirebaseDatabase.getInstance().reference
 
         binding.signupBtn.setOnClickListener {
             signUpUser()
@@ -42,17 +42,28 @@ class SignUpPage : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val firebaseUser = auth.currentUser
                         firebaseUser?.let {
-                            val user = User(it.uid, name, email,password,confirmPassword)
-                            Log.d("UserDetails", "UID: ${user.uid}, Name: ${user.name}, Email: ${user.email}, Password: ${user.password}, ConfirmPassword: ${user.confirmPassword}")
+                            val user = User(
+                                uid = it.uid,
+                                name = name,
+                                email = email,
+                                password = password,
+                                confirmPassword = confirmPassword
+                            )
+                            Log.d(
+                                "UserDetails",
+                                "UID: ${user.uid}, Name: ${user.name}, Email: ${user.email}, Password: ${user.password}, ConfirmPassword: ${user.confirmPassword}"
+                            )
                             saveUserToDatabase(user)
                         }
-                        Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT)
+                            .show()
                         val intent = Intent(this@SignUpPage, LoginPage::class.java)
                         startActivity(intent)
                         finish()
                     } else {
                         val error = task.exception?.message
-                        Toast.makeText(this, "Registration failed: $error", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Registration failed: $error", Toast.LENGTH_SHORT)
+                            .show()
                     }
                 }
             } else {
@@ -63,18 +74,23 @@ class SignUpPage : AppCompatActivity() {
         }
     }
 
-    private fun saveUserToDatabase(user:User) {
-        dataBase.child("users").child(user.uid).setValue(user).addOnCompleteListener { task ->
-            if(task.isSuccessful){
+    private fun saveUserToDatabase(user: User) {
+        dataBase = FirebaseDatabase.getInstance().reference.child("User").child(user.uid)
+
+        dataBase.push().setValue(user).addOnCompleteListener {
+            if (it.isSuccessful) {
                 Log.d("DatabaseSave", "User saved successfully with UID: ${user.uid}")
                 val intent = Intent(this@SignUpPage, LoginPage::class.java)
                 startActivity(intent)
                 finish()
-            }else{
-                val error = task.exception?.message
+            } else {
+                val error = it.exception?.message
+                Log.d("DatabaseSave", "User Not saved successfully with UID: ${user.uid}")
                 Toast.makeText(this, "Failed to save user: $error", Toast.LENGTH_SHORT).show()
 
             }
+        }.addOnFailureListener { e ->
+            Log.e("DatabaseSave", "Error saving user", e)
         }
     }
 }

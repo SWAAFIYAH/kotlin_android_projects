@@ -7,7 +7,9 @@
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowNoTitle">true</item>
+
     </style>
+
 
     <!-- styles.xml -->
     <style name="Theme.HireMe" parent="Base.Theme.HireMe" />
