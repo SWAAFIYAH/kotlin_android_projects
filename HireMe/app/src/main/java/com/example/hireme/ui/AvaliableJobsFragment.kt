@@ -39,7 +39,7 @@ class AvaliableJobsFragment : Fragment() {
             val jobsList = results.map { document ->
                 document.toObject(AvailableJobs::class.java)
             }
-
+            Log.d("Jobs List Size", "Size: ${jobsList.size}")
             Log.d("Jobs List", jobsList.toString())
             jobsAdapter = AvailableJobsRecViewAdapter(jobsList)
 

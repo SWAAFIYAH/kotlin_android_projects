@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_dash_board" >
         <action
             android:id="@+id/action_dashBoardFragment_to_avaliableJobsFragment"
-            app:destination="@id/avaliableJobsFragment" />
+            app:destination="@id/avaliableJobsFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/avaliableJobsFragment"

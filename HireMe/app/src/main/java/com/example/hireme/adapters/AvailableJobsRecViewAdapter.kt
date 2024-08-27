@@ -1,5 +1,6 @@
 package com.example.hireme.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -17,9 +18,10 @@ class AvailableJobsRecViewAdapter(
         fun bind(job: AvailableJobs) {
             binding.jobTitleTV.text = job.title
             binding.companyTV.text = job.company
-            binding.root.setOnClickListener {
-              //  onJobClick(job)
-            }
+
+            /* binding.root.setOnClickListener {
+                onJobClick(job)
+            }*/
         }
     }
 
@@ -32,9 +34,11 @@ class AvailableJobsRecViewAdapter(
 
     override fun onBindViewHolder(holder: JobsViewHolder, position: Int) {
         holder.bind(jobs[position])
+
     }
 
     override fun getItemCount(): Int {
         return jobs.size
+
     }
 }
